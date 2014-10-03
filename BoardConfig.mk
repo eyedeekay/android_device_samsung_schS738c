@@ -1,7 +1,7 @@
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
--include vendor/samsung/sch-S738c/BoardConfigVendor.mk
+-include vendor/samsung/schS738c/BoardConfigVendor.mk
 
 TARGET_ARCH := arm
 TARGET_NO_BOOTLOADER := true
@@ -11,7 +11,7 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-TARGET_BOOTLOADER_BOARD_NAME := sch-S738c
+TARGET_BOOTLOADER_BOARD_NAME := schS738c
 
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom loglevel=1
 BOARD_KERNEL_BASE := 0x00200000
@@ -24,6 +24,6 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x105c0000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x105c0000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-TARGET_PREBUILT_KERNEL := device/samsung/sch-S738c/kernel
+TARGET_PREBUILT_KERNEL := device/samsung/schS738c/kernel
 
 BOARD_HAS_NO_SELECT_BUTTON := true

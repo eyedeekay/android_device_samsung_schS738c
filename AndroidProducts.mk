@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/device_sch-S738c.mk
+    $(LOCAL_DIR)/device_schS738c.mk
