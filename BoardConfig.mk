@@ -4,6 +4,7 @@ USE_CAMERA_STUB := true
 -include vendor/samsung/schS738c/BoardConfigVendor.mk
 
 TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := cortex-a5
 TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM := unknown
 TARGET_CPU_ABI := armeabi-v7a
