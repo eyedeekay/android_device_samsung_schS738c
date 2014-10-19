@@ -1,11 +1,11 @@
 ## Specify phone tech before including full_phone
-$(call inherit-product, vendor/replicant/config/gsm.mk)
+$(call inherit-product, vendor/cyanogenmod/config/gsm.mk)
 
 # Release name
 PRODUCT_RELEASE_NAME := schS738c
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/replicant/config/common_full_phone.mk)
+$(call inherit-product, vendor/cyanogenmod/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/samsung/schS738c/device_schS738c.mk)
