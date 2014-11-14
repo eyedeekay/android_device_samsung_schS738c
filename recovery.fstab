@@ -3,8 +3,8 @@
 /boot           emmc            /dev/block/mmcblk0p8
 /data           ext4            /dev/block/mmcblk0p18
 /cache          ext4            /dev/block/mmcblk0p17
-/sd-ext         vfat            /dev/block/mmcblk0p1        /dev/block/mmcblk0
+/sd-ext         vfat            /dev/block/mmcblk0p2
 /system         ext4            /dev/block/mmcblk0p16
-/sdcard         datamedia       /dev/null
+/sdcard         vfat            /dev/block/mmcblk0p1        /dev/block/mmcblk0
 /efs            ext4            /dev/block/mmcblk0p19
 /misc           emmc            /dev/block/mmcblk0p21
