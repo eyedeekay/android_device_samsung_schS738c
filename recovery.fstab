@@ -1,5 +1,4 @@
-# mount point	fstype    device    	[device2]
-
+## mount point	fstype    device    	                    [device2]
 /recovery       emmc            /dev/block/mmcblk0p12
 /boot           emmc            /dev/block/mmcblk0p8
 /data           ext4            /dev/block/mmcblk0p18
