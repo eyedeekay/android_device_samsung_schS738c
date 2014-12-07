@@ -30,4 +30,4 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_KERNEL_CONFIG := cm_schS738c_defconfig
 BOARD_HAS_NO_SELECT_BUTTON := true
 
-SUPERUSER_PACKAGE := com.cmotc.superuser
+#SUPERUSER_PACKAGE := com.cmotc.superuser
