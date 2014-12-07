@@ -1,11 +1,10 @@
-# mount point	fstype    device    	[device2]
-
-/sdcard     vfat        /dev/block/mmcblk0p1        /dev/block/mmcblk0
-/sd-ext     ext4        /dev/block/mmcblk0p2
-/boot       emmc         /dev/block/mmcblk0p8
-/recovery   emmc         /dev/block/mmcblk0p12
-/system     ext4      /dev/block/mmcblk0p16
-/cache      ext4      /dev/block/mmcblk0p17
-/data       ext4      /dev/block/mmcblk0p18
-/efs        ext4      /dev/block/mmcblk0p19
-/misc       emmc         /dev/block/mmcblk0p21
+#mount    point    type    device    device2
+/boot    emmc    /dev/block/mmcblk0p8    
+/data    ext4    /dev/block/mmcblk0p18    
+/cache    ext4    /dev/block/mmcblk0p17    
+/misc    emmc    /dev/block/mmcblk0p21    
+/recovery    emmc    /dev/block/mmcblk0p12    
+/sdcard    vfat    /dev/block/mmcblk0p1    /dev/block/mmcblk0    
+/system    ext4    /dev/block/mmcblk0p16    
+/sd-ext    vfat    /dev/block/mmcblk0p2    
+/efs    ext4    /dev/block/mmcblk0p19    
