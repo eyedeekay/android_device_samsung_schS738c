@@ -5,29 +5,19 @@
 # Currently we dont have e2fsck compiled. So fs check would failed.
 #<src> 			<mnt_point> 	<type> <mnt_flags and options> 							<fs_mgr_flags>
 
-/dev/block/mmcblk0p16	/system		ext4	rw,barrier=1								wait
-/dev/block/mmcblk0p18	/data		ext4	rw,discard,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,nobarrier	wait,check
-/dev/block/mmcblk0p17	/cache		ext4	rw,noatime,nosuid,nodev,barrier=1,data=ordered	wait,check
-/dev/block/mmcblk0p8	/boot		emmc	defaults
-/dev/block/mmcblk0p12	/recovery	emmc	defaults
-/dev/block/mmcblk0p21	/misc    	emmc	defaults
+/dev/block/mmcblk0p16	/system		ext4	rw,barrier=1								wait,ro,seclabel,noatime,data=ordered wait
+/dev/block/mmcblk0p18	/data		ext4	rw,discard,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,nobarrier	wait,check,encryptable=/dev/block/mmcblk0p16
+/dev/block/mmcblk0p17	/cache		ext4	noatime,nosuid,nodev,barrier=1,data=ordered,noauto_da_alloc,journal_async_commit,errors=panic wait,check
+/dev/block/mmcblk0p8	/boot		emmc	rw,noatime,nosuid,nodev,barrier=1,data=ordered				wait,check
+/dev/block/mmcblk0p12	/recovery	emmc	defaults								defaults
+/dev/block/mmcblk0p21	/misc    	emmc	defaults								defaults
 #/dev/block/mmcblk0p1	/sdcard    	vfat	defaults								/dev/block/mmcblk0
 /dev/block/mmcblk0p2    /sd-ext    	vfat	defaults
 /dev/block/mmcblk0p19	/efs    	ext4	defaults
 
-
-/dev/block/platform/msm_sdcc.1/by-name/boot /boot emmc defaults defaults
-/dev/block/platform/msm_sdcc.1/by-name/recovery /recovery emmc defaults defaults
-/dev/block/platform/msm_sdcc.1/by-name/misc /misc emmc defaults defaults
-/dev/block/platform/msm_sdcc.1/by-name/system /system ext4 ro,seclabel,noatime,data=ordered wait
-/dev/block/platform/msm_sdcc.1/by-name/userdata /data ext4 noatime,nosuid,nodev,barrier=1,data=ordered,noauto_da_alloc,journal_async_commit,errors=panic wait,check,encryptable=/dev/block/platform/msm_sdcc.1/by-name/extra
-/dev/block/platform/msm_sdcc.1/by-name/cache /cache ext4 noatime,nosuid,nodev,barrier=1,data=ordered,noauto_da_alloc,journal_async_commit,errors=panic wait,check
-/dev/block/platform/msm_sdcc.1/by-name/radio /firmware/radio vfat ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337 wait
-/dev/block/platform/msm_sdcc.1/by-name/adsp /firmware/adsp vfat ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337 wait
-/dev/block/platform/msm_sdcc.1/by-name/wcnss /firmware/wcnss vfat ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337 wait
-/dev/block/platform/msm_sdcc.1/by-name/devlog /devlog ext4 nosuid,nodev,barrier=1,errors=continue wait
-/dev/block/platform/msm_sdcc.1/by-name/fataldevlog /fataldevlog ext4 nosuid,nodev,barrier=1,errors=continue wait
+#/dev/block/platform/msm_sdcc.1/by-name/radio 	/firmware/radio vfat ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337 wait
+#/dev/block/platform/msm_sdcc.1/by-name/adsp 	/firmware/adsp vfat ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337 wait
+#/dev/block/platform/msm_sdcc.1/by-name/wcnss 	/firmware/wcnss vfat ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337 wait
+#/dev/block/platform/msm_sdcc.1/by-name/devlog 	/devlog ext4 nosuid,nodev,barrier=1,errors=continue wait
+#/dev/block/platform/msm_sdcc.1/by-name/fataldevlog /fataldevlog ext4 nosuid,nodev,barrier=1,errors=continue wait
 #/dev/block/platform/msm_sdcc.1/by-name/reserve /ramdump vfat rw wait
-/dev/block/platform/msm_sdcc.1/by-name/custdata /custdata ext4 nosuid,nodev,barrier=1 wait
-/devices/msm_sdcc.2/mmc_host auto auto defaults voldmanaged=sdcard1:auto,noemulatedsd
-/devices/platform/xhci-hcd auto auto defaults voldmanaged=usbdisk:auto
