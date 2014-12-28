@@ -1,0 +1,12 @@
+#<src> 			<mnt_point> 	<type> <mnt_flags and options> 							<fs_mgr_flags>
+
+/dev/block/mmcblk0p16	/system		ext4	rw,barrier=1								wait
+/dev/block/mmcblk0p18	/data		ext4	rw,discard,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,nobarrier	wait,check
+/dev/block/mmcblk0p17	/cache		ext4	rw,noatime,nosuid,nodev,barrier=1,data=ordered	wait,check
+/dev/block/mmcblk0p8	/boot		emmc	defaults
+/dev/block/mmcblk0p12	/recovery	emmc	defaults
+/dev/block/mmcblk0p21	/misc    	emmc	defaults
+#/dev/block/mmcblk0p1	/sdcard    	vfat	defaults								/dev/block/mmcblk0
+/dev/block/mmcblk0p2    /sd-ext    	vfat	defaults
+/dev/block/mmcblk0p19	/efs    	ext4	defaults
+
