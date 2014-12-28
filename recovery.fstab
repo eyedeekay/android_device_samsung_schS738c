@@ -5,9 +5,9 @@
 # Currently we dont have e2fsck compiled. So fs check would failed.
 #<src> 			<mnt_point> 	<type> <mnt_flags and options> 							<fs_mgr_flags>
 
-/dev/block/mmcblk0p16	/system		ext4	rw,barrier=1								wait,ro,seclabel,noatime,data=ordered wait
+/dev/block/mmcblk0p16	/system		ext4	wait,ro,seclabel,noatime,data=ordered 					wait
 /dev/block/mmcblk0p18	/data		ext4	rw,discard,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,nobarrier	wait,check,encryptable=/dev/block/mmcblk0p16
-/dev/block/mmcblk0p17	/cache		ext4	noatime,nosuid,nodev,barrier=1,data=ordered,noauto_da_alloc,journal_async_commit,errors=panic wait,check
+/dev/block/mmcblk0p17	/cache		ext4	noatime,nosuid,nodev,barrier=1,data=ordered,noauto_da_alloc,journal_async_commit,errors=panic	wait,check
 /dev/block/mmcblk0p8	/boot		emmc	rw,noatime,nosuid,nodev,barrier=1,data=ordered				wait,check
 /dev/block/mmcblk0p12	/recovery	emmc	defaults								defaults
 /dev/block/mmcblk0p21	/misc    	emmc	defaults								defaults
