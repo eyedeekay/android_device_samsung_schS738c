@@ -1,7 +1,6 @@
 [
  {
-   "repository": "android_kernel_aurora_schS738c",
+   "repository": "cmotc/android_kernel_aurora_schS738c",
    "target_path": "kernel/samsung/schS738c",
-   "branch": "master"
  }
 ]
