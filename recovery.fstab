@@ -1,4 +1,4 @@
-#mount    point    type    device    device2
+#mount point    type    device    device2
 /boot    emmc    /dev/block/mmcblk0p8    
 /cache    ext4    /dev/block/mmcblk0p17  
 /data    ext4    /dev/block/mmcblk0p18      
