@@ -1,6 +1,8 @@
 # inherit from the proprietary version
 #-include vendor/samsung/schS738c/BoardConfigVendor.mk
 
+DEVICE_PACKAGE_OVERLAYS += device/samsung/schS738c/overlay
+
 ## Kernel, Bootloader
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom loglevel=1
 BOARD_KERNEL_BASE := 0x00200000
@@ -32,11 +34,70 @@ TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 
 ## Qcom hardwae
 BOARD_USES_QCOM_HARDWARE := true
-
-## FM Radio?
 #QCOM_TARGET_PRODUCT := msm7627a
 #TARGET_AVOID_DRAW_TEXTURE_EXTENSION := true
 #TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
+
+## Video
+TARGET_QCOM_MEDIA_VARIANT := caf
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_LEGACY_MMPARSER
+PRODUCT_PACKAGES += \
+	libstagefrighthw \
+	libmm-omxcore \
+	libOmxCore
+PRODUCT_COPY_FILES += \
+	device/samsung/schS738c/etc/media_profiles.xml:system/etc/media_profiles.xml \
+	device/samsung/schS738c/etc/media_codecs.xml:system/etc/media_codecs.xml
+
+## Graphics
+USE_OPENGL_RENDERER := true
+TARGET_QCOM_DISPLAY_VARIANT := legacy
+TARGET_DOESNT_USE_FENCE_SYNC := true
+BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
+BOARD_EGL_CFG := device/samsung/schS738c/graphics/lib/egl/egl.cfg
+PRODUCT_PACKAGES += \
+	copybit.msm7x27a \
+	gralloc.msm7x27a \
+	hwcomposer.msm7x27a \
+	libtilerenderer
+
+## Misc
+PRODUCT_PACKAGES += \
+	make_ext4fs \
+	setup_fs \
+	com.android.future.usb.accessory
+
+## Audio
+TARGET_QCOM_AUDIO_VARIANT := caf
+BOARD_USES_LEGACY_ALSA_AUDIO := true
+COMMON_GLOBAL_CFLAGS += -DNO_TUNNELED_SOURCE
+PRODUCT_PACKAGES += \
+	audio.primary.msm7x27a \
+	audio_policy.msm7x27a \
+	audio.a2dp.default \
+	audio.usb.default \
+	audio_policy.conf \
+	libaudioutils
+
+## Other HALs
+PRODUCT_PACKAGES += \
+	camera.msm7x27a \
+	lights.msm7x27a \
+	gps.msm7x27a \
+	power.msm7x27a \
+	libhealthd.msm7x27a
+
+## FM radio
+PRODUCT_PACKAGES += \
+	qcom.fmradio \
+	libqcomfm_jni \
+	FM2
+
+## Charger
+PRODUCT_PACKAGES += \
+	charger \
+	charger_res_images
 
 ## Network / Wi-Fi
 BOARD_WLAN_DEVICE := ath6kl
@@ -58,8 +119,12 @@ PRODUCT_COPY_FILES += \
 	device/samsung/schS738c/bin/get_macaddrs:system/bin/get_macaddrs
 
 ## Audio
+
 ## Camera
 USE_CAMERA_STUB := true
+
+## Bluetooth
+BOARD_HAVE_BLUETOOTH := true
 
 ## Memory
 TARGET_USES_ION := true
