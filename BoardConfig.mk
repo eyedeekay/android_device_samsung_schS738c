@@ -78,21 +78,6 @@ PRODUCT_PACKAGES += \
 	hwcomposer.msm7x27a \
 	libtilerenderer
 
-## Misc
-PRODUCT_PACKAGES += \
-	make_ext4fs \
-	setup_fs \
-	com.android.future.usb.accessory
-TARGET_PROVIDES_LIBLIGHTS := true
-
-## Other HALs
-PRODUCT_PACKAGES += \
-	camera.msm7x27a \
-	lights.msm7x27a \
-	gps.msm7x27a \
-	power.msm7x27a \
-	libhealthd.msm7x27a
-
 ## FM radio
 PRODUCT_PACKAGES += \
 	qcom.fmradio \
@@ -161,6 +146,26 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.bt.bdaddr_path=/data/misc/bluedroid/bdaddr \
 	ro.qualcomm.bluetooth.dun=true \
 	ro.qualcomm.bluetooth.ftp=true
+
+## Misc
+PRODUCT_PACKAGES += \
+	make_ext4fs \
+	setup_fs \
+	com.android.future.usb.accessory
+TARGET_PROVIDES_LIBLIGHTS := true
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=2
+PRODUCT_TAGS += dalvik.gc.type-precise
+PRODUCT_AAPT_CONFIG := normal mdpi hdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+
+## Other HALs
+PRODUCT_PACKAGES += \
+	camera.msm7x27a \
+	lights.msm7x27a \
+	gps.msm7x27a \
+	power.msm7x27a \
+	libhealthd.msm7x27a
+
 
 ## Memory
 TARGET_USES_ION := true
