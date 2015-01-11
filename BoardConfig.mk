@@ -92,3 +92,11 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 8388608
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 487136952
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2920577761
 BOARD_FLASH_BLOCK_SIZE := 131072
+
+##System Root
+PRODUCT_COPY_FILES += \
+	device/samsung/schS738c/init.qcom.rc:root/init.qcom.rc \
+	device/samsung/schS738c/init.qcom.usb.rc:root/init.qcom.usb.rc \
+	device/samsung/schS738c/ueventd.qcom.rc:root/ueventd.qcom.rc \
+	device/samsung/schS738c/lpm.rc:root/lpm.rc \
+	device/samsung/schS738c/fstab.qcom:root/fstab.qcom
