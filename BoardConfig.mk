@@ -38,6 +38,14 @@ BOARD_USES_QCOM_HARDWARE := true
 #TARGET_AVOID_DRAW_TEXTURE_EXTENSION := true
 #TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 
+## Network
+PRODUCT_COPY_FILES += \
+	device/samsung/schS738c/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+	device/samsung/schS738c/prebuilt/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+	device/samsung/schS738c/prebuilt/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+	device/samsung/schS738c/prebuilt/bin/get_macaddrs:system/bin/get_macaddrs
+
+## Audio
 ## Camera
 USE_CAMERA_STUB := true
 
