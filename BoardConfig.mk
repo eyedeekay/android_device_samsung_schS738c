@@ -91,6 +91,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.fm.mulinst.recording.support=false
 
 ## Charger
+BOARD_LPM_BOOT_ARGUMENT_NAME := androidboot.boot_pause
+BOARD_LPM_BOOT_ARGUMENT_VALUE := batt
 PRODUCT_PACKAGES += \
 	charger \
 	charger_res_images
@@ -128,6 +130,10 @@ PRODUCT_PACKAGES += \
 	audio.usb.default \
 	audio_policy.conf \
 	libaudioutils
+PRODUCT_COPY_FILES += \
+	device/samsung/schS738c/etc/audio_policy.conf:system/etc/audio_policy.conf \
+	device/samsung/schS738c/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
+	device/samsung/schS738c/etc/AudioFilter.csv:system/etc/AudioFilter.csv
 TARGET_PROVIDES_LIBAUDIO := true
 
 ## Camera
@@ -137,6 +143,18 @@ USE_CAMERA_STUB := true
 #COMMON_GLOBAL_CFLAGS += -DCAMERA_NO_UNWANTED_MSG -DSAMSUNG_CAMERA_LEGACY
 #PRODUCT_COPY_FILES += \
 #	device/samsung/msm7x27a-common/camera/camera.msm7x27a.so:system/lib/hw/camera.msm7x27a.so
+
+## RIL
+BOARD_USES_LEGACY_RIL := true
+BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
+BOARD_RIL_CLASS := ../../../device/samsung/msm7x27a-common/ril/
+PRODUCT_PROPERTY_OVERRIDES += \
+	rild.libpath=/system/lib/libsec-ril.so \
+	rild.libargs=-d/dev/smd0 \
+	ro.telephony.ril_class=SamsungRIL \
+	ro.telephony.ril.v3=datacall,icccardstatus,facilitylock \
+	ro.telephony.call_ring.multiple=false
+
 
 ## Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -207,6 +225,30 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 	frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
 
+## Keychar
+PRODUCT_COPY_FILES += \
+	device/samsung/schS738c/usr/keychars/7x27a_kp.kcm.bin:system/usr/keychars/7x27a_kp.kcm.bin \
+	device/samsung/schS738c/usr/keychars/surf_keypad.kcm.bin:system/usr/keychars/surf_keypad.kcm.bin
+
+## Keylayout
+PRODUCT_COPY_FILES += \
+	device/samsung/schS738c/usr/keylayout/7x27a_kp.kl:system/usr/keylayout/7x27a_kp.kl \
+	device/samsung/schS738c/usr/keylayout/sec_jack.kl:system/usr/keylayout/sec_jack.kl \
+	device/samsung/schS738c/usr/keylayout/sec_key.kl:system/usr/keylayout/sec_key.kl \
+	device/samsung/schS738c/usr/keylayout/sec_powerkey.kl:system/usr/keylayout/sec_powerkey.kl \
+	device/samsung/schS738c/usr/keylayout/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl \
+	device/samsung/schS738c/usr/keylayout/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl
+
+## Sensor calibration files
+PRODUCT_COPY_FILES += \
+	device/samsung/schS738c/etc/calib.dat:system/etc/calib.dat \
+	device/samsung/schS738c/etc/param.dat:system/etc/param.dat \
+	device/samsung/schS738c/etc/sensors.dat:system/etc/sensors.dat
+
+## Touchscreen configuration
+PRODUCT_COPY_FILES += \
+	device/samsung/schS738c/usr/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
+
 ## Recovery
 TARGET_RECOVERY_INITRC := device/samsung/schS738c/recovery/init.recovery.qcom.rc
 TARGET_RECOVERY_FSTAB := device/samsung/schS738c/schS738c.fstab
@@ -252,3 +294,6 @@ PRODUCT_COPY_FILES += \
 	device/samsung/schS738c/init/ueventd.qcom.rc:root/ueventd.qcom.rc \
 	device/samsung/schS738c/init/lpm.rc:root/lpm.rc \
 	device/samsung/schS738c/schS738c.fstab:root/schS738c.fstab
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	lpa.decode=true

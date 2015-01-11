@@ -9,4 +9,4 @@ ifneq ($(filter $(SAMSUNG_TARGETS),$(TARGET_DEVICE)),)
 endif
 
 # include the non-open-source counterpart to this file
-#-include vendor/samsung/schS738c/AndroidBoardVendor.mk
+-include vendor/samsung/schS738c/AndroidBoardVendor.mk
