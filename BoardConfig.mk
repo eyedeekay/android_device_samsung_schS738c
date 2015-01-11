@@ -38,12 +38,24 @@ BOARD_USES_QCOM_HARDWARE := true
 #TARGET_AVOID_DRAW_TEXTURE_EXTENSION := true
 #TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 
-## Network
+## Network / Wi-Fi
+BOARD_WLAN_DEVICE := ath6kl
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_ath6kl
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_ath6kl
+WIFI_EXT_MODULE_NAME := "cfg80211"
+WIFI_EXT_MODULE_PATH := "/system/lib/modules/cfg80211.ko"
+WIFI_DRIVER_MODULE_AP_ARG := "suspend_mode=3 wow_mode=2 ath6kl_p2p=1 recovery_enable=1"
+WIFI_DRIVER_MODULE_NAME := "ath6kl_sdio"
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/ath6kl_sdio.ko"
+WIFI_DRIVER_MODULE_ARG := "suspend_mode=3 wow_mode=2 ath6kl_p2p=1 recovery_enable=1"
 PRODUCT_COPY_FILES += \
-	device/samsung/schS738c/prebuilt/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-	device/samsung/schS738c/prebuilt/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-	device/samsung/schS738c/prebuilt/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-	device/samsung/schS738c/prebuilt/bin/get_macaddrs:system/bin/get_macaddrs
+	device/samsung/schS738c/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+	device/samsung/schS738c/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+ 	device/samsung/schS738c/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+	device/samsung/schS738c/bin/get_macaddrs:system/bin/get_macaddrs
 
 ## Audio
 ## Camera
@@ -81,9 +93,9 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
 
 ## Recovery
-TARGET_RECOVERY_INITRC := init.recovery.qcom.rc
+TARGET_RECOVERY_INITRC := device/samsung/schS738c/recovery/init.recovery.qcom.rc
 TARGET_RECOVERY_FSTAB := device/samsung/schS738c/schS738c.fstab
-#TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
+TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 TARGET_RECOVERY_SWIPE := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -94,7 +106,7 @@ BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_HAS_NO_SELECT_BUTTON := true
 PRODUCT_COPY_FILES += \
-	device/samsung/schS738c/recovery/sbin/rmt_storage_recovery:recovery/root/sbin/rmt_storage_recovery \
+	device/samsung/schS738c/recovery/rmt_storage_recovery:recovery/root/sbin/rmt_storage_recovery \
 	device/samsung/schS738c/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
 	device/samsung/schS738c/recovery/postrecoveryboot.sh:recovery/system/bin/postrecoveryboot.sh
 
@@ -118,8 +130,8 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 ##System Root
 PRODUCT_COPY_FILES += \
-	device/samsung/schS738c/init.qcom.rc:root/init.qcom.rc \
-	device/samsung/schS738c/init.qcom.usb.rc:root/init.qcom.usb.rc \
-	device/samsung/schS738c/ueventd.qcom.rc:root/ueventd.qcom.rc \
-	device/samsung/schS738c/lpm.rc:root/lpm.rc \
+	device/samsung/schS738c/init/init.qcom.rc:root/init.qcom.rc \
+	device/samsung/schS738c/init/init.qcom.usb.rc:root/init.qcom.usb.rc \
+	device/samsung/schS738c/init/ueventd.qcom.rc:root/ueventd.qcom.rc \
+	device/samsung/schS738c/init/lpm.rc:root/lpm.rc \
 	device/samsung/schS738c/schS738c.fstab:root/schS738c.fstab
