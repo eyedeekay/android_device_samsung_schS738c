@@ -99,4 +99,4 @@ PRODUCT_COPY_FILES += \
 	device/samsung/schS738c/init.qcom.usb.rc:root/init.qcom.usb.rc \
 	device/samsung/schS738c/ueventd.qcom.rc:root/ueventd.qcom.rc \
 	device/samsung/schS738c/lpm.rc:root/lpm.rc \
-	device/samsung/schS738c/fstab.qcom:root/fstab.qcom
+	device/samsung/schS738c/schS738c.fstab:root/schS738c.fstab
