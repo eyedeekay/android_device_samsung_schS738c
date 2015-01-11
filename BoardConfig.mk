@@ -147,7 +147,7 @@ USE_CAMERA_STUB := true
 ## RIL
 BOARD_USES_LEGACY_RIL := true
 BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
-BOARD_RIL_CLASS := ../../../device/samsung/msm7x27a-common/ril/
+BOARD_RIL_CLASS := ../../../device/samsung/schS738c/ril/
 PRODUCT_PROPERTY_OVERRIDES += \
 	rild.libpath=/system/lib/libsec-ril.so \
 	rild.libargs=-d/dev/smd0 \
