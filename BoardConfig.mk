@@ -34,6 +34,13 @@ TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 
 ## Qcom hardwae
 BOARD_USES_QCOM_HARDWARE := true
+PRODUCT_PROPERTY_OVERRIDES += \
+	com.qc.hardware=true \
+	dev.pm.dyn_sample_period=700000 \
+	dev.pm.dyn_samplingrate=1 \
+	ro.vendor.extension_library=/system/lib/libqc-opt.so
+TARGET_USES_QCOM_BSP := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 #QCOM_TARGET_PRODUCT := msm7627a
 #TARGET_AVOID_DRAW_TEXTURE_EXTENSION := true
 #TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
@@ -49,6 +56,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	device/samsung/schS738c/etc/media_profiles.xml:system/etc/media_profiles.xml \
 	device/samsung/schS738c/etc/media_codecs.xml:system/etc/media_codecs.xml
+PRODUCT_PROPERTY_OVERRIDES += \
+	debug.gr.numframebuffers=3 \
+	debug.egl.recordable.rgba8888=1 \
+	debug.composition.type=dyn \
+	debug.hwc.dynThreshold=1.9 \
+	ro.bq.gpu_to_cpu_unsupported=1 \
+	ro.max.fling_velocity=4000 \
+	ro.opengles.version=131072 \
+	ro.sf.lcd_density=160
 
 ## Graphics
 USE_OPENGL_RENDERER := true
@@ -67,18 +83,7 @@ PRODUCT_PACKAGES += \
 	make_ext4fs \
 	setup_fs \
 	com.android.future.usb.accessory
-
-## Audio
-TARGET_QCOM_AUDIO_VARIANT := caf
-BOARD_USES_LEGACY_ALSA_AUDIO := true
-COMMON_GLOBAL_CFLAGS += -DNO_TUNNELED_SOURCE
-PRODUCT_PACKAGES += \
-	audio.primary.msm7x27a \
-	audio_policy.msm7x27a \
-	audio.a2dp.default \
-	audio.usb.default \
-	audio_policy.conf \
-	libaudioutils
+TARGET_PROVIDES_LIBLIGHTS := true
 
 ## Other HALs
 PRODUCT_PACKAGES += \
@@ -93,6 +98,12 @@ PRODUCT_PACKAGES += \
 	qcom.fmradio \
 	libqcomfm_jni \
 	FM2
+PRODUCT_COPY_FILES += \
+	device/samsung/schS738c/fm/etc/init.qcom.fm.sh:/system/
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.fm.analogpath.supported=true \
+	ro.fm.transmitter=false \
+	ro.fm.mulinst.recording.support=false
 
 ## Charger
 PRODUCT_PACKAGES += \
@@ -117,27 +128,61 @@ PRODUCT_COPY_FILES += \
 	device/samsung/schS738c/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
  	device/samsung/schS738c/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
 	device/samsung/schS738c/bin/get_macaddrs:system/bin/get_macaddrs
+PRODUCT_PROPERTY_OVERRIDES += \
+	wifi.interface=wlan0 \
+	wifi.supplicant_scan_interval=60
 
 ## Audio
+TARGET_QCOM_AUDIO_VARIANT := caf
+BOARD_USES_LEGACY_ALSA_AUDIO := true
+COMMON_GLOBAL_CFLAGS += -DNO_TUNNELED_SOURCE
+PRODUCT_PACKAGES += \
+	audio.primary.msm7x27a \
+	audio_policy.msm7x27a \
+	audio.a2dp.default \
+	audio.usb.default \
+	audio_policy.conf \
+	libaudioutils
+TARGET_PROVIDES_LIBAUDIO := true
 
 ## Camera
 USE_CAMERA_STUB := true
+#TARGET_DISABLE_ARM_PIE := true
+#COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT -DNEEDS_VECTORIMPL_SYMBOLS
+#COMMON_GLOBAL_CFLAGS += -DCAMERA_NO_UNWANTED_MSG -DSAMSUNG_CAMERA_LEGACY
+#PRODUCT_COPY_FILES += \
+#	device/samsung/msm7x27a-common/camera/camera.msm7x27a.so:system/lib/hw/camera.msm7x27a.so
 
 ## Bluetooth
 BOARD_HAVE_BLUETOOTH := true
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.bluetooth.remote.autoconnect=true \
+	ro.bluetooth.request.master=true \
+	ro.bt.bdaddr_path=/data/misc/bluedroid/bdaddr \
+	ro.qualcomm.bluetooth.dun=true \
+	ro.qualcomm.bluetooth.ftp=true
 
 ## Memory
 TARGET_USES_ION := true
 BOARD_NEEDS_MEMORYHEAPPMEM := true
 BOARD_USE_MHEAP_SCREENSHOT := true
+PRODUCT_PROPERTY_OVERRIDES += \
+	dalvik.vm.dexopt-data-only=1 \
+	dalvik.vm.jit.codecachesize=1 \
+	ro.config.low_ram=true
 
 ## Vold
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_MAX_PARTITIONS := 24
+	PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.usb.config=mtp,adb \
+	ro.vold.umsdirtyratio=50 \
+	persist.sys.vold.switchablepair=sdcard0,sdcard1
+
 
 ## UMS
-#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
-#BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun%d/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun%d/file"
 
 ## Workaround Samsung Framebuffer
 TARGET_NO_INITLOGO := true
@@ -174,6 +219,8 @@ PRODUCT_COPY_FILES += \
 	device/samsung/schS738c/recovery/rmt_storage_recovery:recovery/root/sbin/rmt_storage_recovery \
 	device/samsung/schS738c/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
 	device/samsung/schS738c/recovery/postrecoveryboot.sh:recovery/system/bin/postrecoveryboot.sh
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.cwm.enable_key_repeat=true
 
 ## Filesystem
 BOARD_DATA_DEVICE := /dev/block/mmcblk0p18
