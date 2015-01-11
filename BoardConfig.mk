@@ -1,5 +1,5 @@
 # inherit from the proprietary version
--include vendor/samsung/schS738c/BoardConfigVendor.mk
+#-include vendor/samsung/schS738c/BoardConfigVendor.mk
 
 ## Kernel, Bootloader
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom loglevel=1
@@ -70,6 +70,10 @@ BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_HAS_NO_SELECT_BUTTON := true
+PRODUCT_COPY_FILES += \
+	device/samsung/schS738c/recovery/sbin/rmt_storage_recovery:recovery/root/sbin/rmt_storage_recovery \
+	device/samsung/schS738c/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
+	device/samsung/schS738c/recovery/postrecoveryboot.sh:recovery/system/bin/postrecoveryboot.sh
 
 ## Filesystem
 BOARD_DATA_DEVICE := /dev/block/mmcblk0p18
