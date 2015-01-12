@@ -90,6 +90,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.ril_class=SamsungRIL \
 	ro.telephony.ril.v3=datacall,icccardstatus,facilitylock \
 	ro.telephony.call_ring.multiple=false
+BOARD_RIL_CLASS := ../../../device/samsung/schS738c/ril/
 
 ## BlueTooth
 PRODUCT_PROPERTY_OVERRIDES += \

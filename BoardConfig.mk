@@ -87,7 +87,6 @@ USE_CAMERA_STUB := true
 ## RIL
 BOARD_USES_LEGACY_RIL := true
 BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
-BOARD_RIL_CLASS := ../../../device/samsung/schS738c/ril/
 
 ## Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -110,6 +109,17 @@ BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun%d/file"
 
 ## Workaround Samsung Framebuffer
 TARGET_NO_INITLOGO := true
+
+## Charging mode
+BOARD_LPM_BOOT_ARGUMENT_NAME := androidboot.boot_pause
+BOARD_LPM_BOOT_ARGUMENT_VALUE := batt
+
+## Use device specific modules
+TARGET_PROVIDES_LIBLIGHTS := true
+TARGET_PROVIDES_LIBAUDIO := true
+
+## Override healthd HAL
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm7x27a
 
 ## Recovery
 TARGET_RECOVERY_INITRC := device/samsung/schS738c/recovery/init.recovery.qcom.rc
