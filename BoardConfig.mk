@@ -52,7 +52,7 @@ USE_OPENGL_RENDERER := true
 TARGET_QCOM_DISPLAY_VARIANT := legacy
 TARGET_DOESNT_USE_FENCE_SYNC := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
-BOARD_EGL_CFG := device/samsung/schS738c/graphics/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/samsung/schS738c/graphics/lib/egl.cfg
 
 ## FM radio
 BOARD_HAVE_QCOM_FM := true
