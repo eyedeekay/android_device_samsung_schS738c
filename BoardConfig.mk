@@ -32,7 +32,7 @@ COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a5 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/msm7x27a-common/include
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/schS738c/include
 
 ## Qcom hardwae
 BOARD_USES_QCOM_HARDWARE := true
