@@ -11,8 +11,8 @@
 #
 #
 #
-LOCAL_PATH := device/samsung/schS738c
-#LOCAL_PATH := $(call my-dir)
+
+LOCAL_PATH := $(call my-dir)
 
 SAMSUNG_TARGETS := schS738c cm_schS738c
 
@@ -21,6 +21,7 @@ include $(CLEAR_VARS)
 ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)
 
 ifneq ($(filter $(SAMSUNG_TARGETS),$(TARGET_DEVICE)),)
+	LOCAL_PATH := $(call my-dir)
 	include $(all-subdir-makefiles)
 endif
 
