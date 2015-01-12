@@ -294,6 +294,10 @@ PRODUCT_COPY_FILES += \
 	device/samsung/schS738c/init/ueventd.qcom.rc:root/ueventd.qcom.rc \
 	device/samsung/schS738c/init/lpm.rc:root/lpm.rc \
 	device/samsung/schS738c/schS738c.fstab:root/schS738c.fstab
-
 PRODUCT_PROPERTY_OVERRIDES += \
 	lpa.decode=true
+
+# For userdebug builds
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0 \
+    ro.adb.secure=0
