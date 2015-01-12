@@ -1,16 +1,16 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
+#
+# Not sure who this file belongs to. Don't really care. Pretty sure it's 
+# Apache licensed. I wanted to make it easier to compare two versions side-by-
+# side.
+#
+#
+#
+#
+#
+#
+#
+#
+#
 
 LOCAL_PATH := $(call my-dir)
 
