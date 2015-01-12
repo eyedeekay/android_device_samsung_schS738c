@@ -3,7 +3,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/samsung/schS738c/schS738c-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/schS738c/AndroidBoardVendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/samsung/schS738c/overlay
 
@@ -18,8 +18,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 $(call inherit-product, build/target/product/full.mk)
-#$(call inherit-product, vendor/samsung/msm7x27a-common/blobs.mk)
-#$(call inherit-product, device/common/gps/gps_eu_supl.mk)
+#$(call inherit-product, vendor/samsung/schS738c/AndroidBoardVendor.mk)
+$(call inherit-product, device/common/gps/gps_eu_supl.mk)
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
@@ -123,7 +123,6 @@ PRODUCT_PACKAGES += \
 	gps.msm7x27a \
 	power.msm7x27a \
 	libhealthd.msm7x27a
-
 
 ## Mem
 PRODUCT_PROPERTY_OVERRIDES += \
