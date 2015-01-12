@@ -14,7 +14,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-SAMSUNG_TARGETS := schS738c cm_schS738c
+SAMSUNG_TARGETS := schS738c
 
 #include $(CLEAR_VARS)
 
