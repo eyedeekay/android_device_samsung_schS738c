@@ -11,6 +11,13 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 # Inherit device configuration
 $(call inherit-product, device/samsung/schS738c/device_schS738c.mk)
 
+## Setup device makefiles
+SAMSUNG_TARGETS := schS738c
+ifneq ($(filter $(SAMSUNG_TARGETS),$(TARGET_DEVICE)),)
+	LOCAL_PATH := $(call my-dir)
+	include $(all-subdir-makefiles)
+endif
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := schS738c
 PRODUCT_NAME := cm_schS738c
