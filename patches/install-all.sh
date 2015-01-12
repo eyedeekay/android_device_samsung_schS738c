@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd device/samsung/msm7x27a-common/patches/
+cd device/samsung/schS738c/patches/
 
 ./apply/install-common.sh
 ./apply/install-gbbootloader.sh
