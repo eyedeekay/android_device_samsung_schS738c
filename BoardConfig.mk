@@ -1,5 +1,5 @@
 # inherit from the proprietary version
--include vendor/samsung/schS738c/BoardConfigVendor.mk
+#-include vendor/samsung/schS738c/BoardConfigVendor.mk
 
 DEVICE_PACKAGE_OVERLAYS += device/samsung/schS738c/overlay
 
