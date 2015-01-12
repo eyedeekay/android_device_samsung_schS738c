@@ -67,7 +67,6 @@ enum ion_heap_ids {
 	ION_CP_MFC_HEAP_ID = 12,
 	ION_CP_WB_HEAP_ID = 16, /* 8660 only */
 	ION_CAMERA_HEAP_ID = 20, /* 8660 only */
-	ION_SYSTEM_CONTIG_HEAP_ID = 21,
 	ION_SF_HEAP_ID = 24,
 	ION_IOMMU_HEAP_ID = 25,
 	ION_QSECOM_HEAP_ID = 27,
@@ -97,7 +96,7 @@ enum cp_mem_usage {
 /**
  * Flag to use when allocating to indicate that a heap is secure.
  */
-#define ION_SECURE (1 << ION_ion_allocation_dataHEAP_ID_RESERVED)
+#define ION_SECURE (1 << ION_HEAP_ID_RESERVED)
 
 /**
  * Macro should be used with ion_heap_ids defined above.
@@ -706,7 +705,6 @@ struct ion_allocation_data {
 	size_t len;
 	size_t align;
 	unsigned int flags;
-	unsigned int heap_mask;
 	struct ion_handle *handle;
 };
 
