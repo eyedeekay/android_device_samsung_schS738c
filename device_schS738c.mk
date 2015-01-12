@@ -1,5 +1,4 @@
 DEVICE_PACKAGE_OVERLAYS += device/samsung/schS738c/overlay
-LOCAL_PATH := device/samsung/schS738c
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel

@@ -11,8 +11,8 @@
 #
 #
 #
-
-LOCAL_PATH := $(call my-dir)
+LOCAL_PATH := device/samsung/schS738c
+#LOCAL_PATH := $(call my-dir)
 
 SAMSUNG_TARGETS := schS738c cm_schS738c
 
