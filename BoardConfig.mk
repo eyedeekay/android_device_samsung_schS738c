@@ -131,9 +131,9 @@ PRODUCT_PACKAGES += \
 	audio_policy.conf \
 	libaudioutils
 PRODUCT_COPY_FILES += \
-	device/samsung/schS738c/etc/audio_policy.conf:system/etc/audio_policy.conf \
-	device/samsung/schS738c/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
-	device/samsung/schS738c/etc/AudioFilter.csv:system/etc/AudioFilter.csv
+	device/samsung/schS738c/audio/etc/audio_policy.conf:system/etc/audio_policy.conf \
+	device/samsung/schS738c/audio/etc/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
+	device/samsung/schS738c/audio/etc/AudioFilter.csv:system/etc/AudioFilter.csv
 TARGET_PROVIDES_LIBAUDIO := true
 
 ## Camera
