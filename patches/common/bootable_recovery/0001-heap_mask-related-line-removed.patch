@@ -1,0 +1,29 @@
+From bd2279279da6b3f9802d102897df1bfac6fd4ae0 Mon Sep 17 00:00:00 2001
+From: cmotc <cmotc@openmailbox.org>
+Date: Mon, 12 Jan 2015 08:13:25 -0500
+Subject: [PATCH] heap_mask related line removed
+
+---
+ minui/graphics_overlay.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/minui/graphics_overlay.c b/minui/graphics_overlay.c
+index 7e00bc4..509e77b 100644
+--- a/minui/graphics_overlay.c
++++ b/minui/graphics_overlay.c
+@@ -161,9 +161,9 @@ int alloc_ion_mem(unsigned int size)
+     ionAllocData.flags = 0;
+     ionAllocData.len = size;
+     ionAllocData.align = sysconf(_SC_PAGESIZE);
+-    ionAllocData.heap_mask =
+-            ION_HEAP(ION_IOMMU_HEAP_ID) |
+-            ION_HEAP(ION_SYSTEM_CONTIG_HEAP_ID);
++//    ionAllocData.heap_mask =
++//            ION_HEAP(ION_IOMMU_HEAP_ID) |
++//            ION_HEAP(ION_SYSTEM_CONTIG_HEAP_ID);
+ 
+     result = ioctl(mem_info.ion_fd, ION_IOC_ALLOC,  &ionAllocData);
+     if(result){
+-- 
+2.1.4
+
