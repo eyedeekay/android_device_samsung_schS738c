@@ -124,7 +124,7 @@ TARGET_PROVIDES_LIBAUDIO := true
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm7x27a
 
 ## Recovery
-TARGET_RECOVERY_INITRC := device/samsung/schS738c/recovery/init.recovery.qcom.rc
+TARGET_RECOVERY_INITRC := device/samsung/schS738c/recovery/etc/init.recovery.qcom.rc
 TARGET_RECOVERY_FSTAB := device/samsung/schS738c/schS738c.fstab
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 TARGET_RECOVERY_SWIPE := true
