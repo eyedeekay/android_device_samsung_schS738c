@@ -168,7 +168,7 @@ PRODUCT_PACKAGES += \
 
 ## Recovery
 PRODUCT_COPY_FILES += \
-	device/samsung/schS738c/recovery/rmt_storage_recovery:recovery/root/sbin/rmt_storage_recovery \
+	device/samsung/schS738c/recovery/bin/rmt_storage_recovery:recovery/root/sbin/rmt_storage_recovery \
 	device/samsung/schS738c/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
 	device/samsung/schS738c/recovery/postrecoveryboot.sh:recovery/system/bin/postrecoveryboot.sh
 PRODUCT_PROPERTY_OVERRIDES += \
