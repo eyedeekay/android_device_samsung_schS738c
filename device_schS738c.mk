@@ -73,10 +73,10 @@ TARGET_PROVIDES_LIBAUDIO := true
 
 ## Network/Wi-Fi
 PRODUCT_COPY_FILES += \
-	device/samsung/schS738c/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-	device/samsung/schS738c/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
- 	device/samsung/schS738c/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-	device/samsung/schS738c/bin/get_macaddrs:system/bin/get_macaddrs
+	device/samsung/schS738c/wifi/etc/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+	device/samsung/schS738c/wifi/etc/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+ 	device/samsung/schS738c/wifi/etc/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+	device/samsung/schS738c/wifi/bin/get_macaddrs:system/bin/get_macaddrs
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0 \
 	wifi.supplicant_scan_interval=60
