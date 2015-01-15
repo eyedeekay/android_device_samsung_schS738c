@@ -121,7 +121,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #Camera
 PRODUCT_COPY_FILES += \
-	device/samsung/msm7x27a-common/camera/camera.msm7x27a.so:system/lib/hw/camera.msm7x27a.so
+	device/samsung/schS738c/camera/camera.msm7x27a.so:system/lib/hw/camera.msm7x27a.so
 
 ## Permissions
 PRODUCT_COPY_FILES += \
