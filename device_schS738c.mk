@@ -120,8 +120,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.vold.switchablepair=sdcard0,sdcard1
 
 #Camera
-#PRODUCT_COPY_FILES += \
-#	device/samsung/msm7x27a-common/camera/camera.msm7x27a.so:system/lib/hw/camera.msm7x27a.so
+PRODUCT_COPY_FILES += \
+	device/samsung/msm7x27a-common/camera/camera.msm7x27a.so:system/lib/hw/camera.msm7x27a.so
 
 ## Permissions
 PRODUCT_COPY_FILES += \
