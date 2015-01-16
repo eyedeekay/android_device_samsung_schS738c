@@ -1,0 +1,29 @@
+From 2a720bfe5e1fd2e9451dd3929f981d8b6d814de0 Mon Sep 17 00:00:00 2001
+From: dyngar-f <dyngar-f@dyngar-f.local>
+Date: Fri, 16 Jan 2015 04:41:34 -0500
+Subject: [PATCH] fix proguard flag
+
+Change-Id: I5174176e0305d5f65392dd19dd589ff735eb94ab
+---
+ core/proguard.flags | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/core/proguard.flags b/core/proguard.flags
+index 0641627..37ffcfa 100644
+--- a/core/proguard.flags
++++ b/core/proguard.flags
+@@ -10,9 +10,9 @@
+ #-flattenpackagehierarchy
+ 
+ # Keep classes and methods that have the guava @VisibleForTesting annotation
+--keep @com.google.common.annotations.VisibleForTesting class *
++-keep @com.android.internal.annotations.VisibleForTesting class *
+ -keepclassmembers class * {
+-@com.google.common.annotations.VisibleForTesting *;
++@com.android.internal.annotations.VisibleForTesting *;
+ }
+ 
+ -include proguard_basic_keeps.flags
+-- 
+2.1.4
+
