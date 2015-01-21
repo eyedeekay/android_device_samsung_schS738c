@@ -1,0 +1,51 @@
+From 052cbc1817a103aa217b11e079fe010e3bdb5177 Mon Sep 17 00:00:00 2001
+From: cmotc <cmotc@openmailbox.org>
+Date: Wed, 21 Jan 2015 02:20:32 -0500
+Subject: [PATCH] removed qdutils from android.mk
+
+---
+ patch                              | 10 ++++++++++
+ services/surfaceflinger/Android.mk | 10 +++++-----
+ 2 files changed, 15 insertions(+), 5 deletions(-)
+ create mode 100644 patch
+
+diff --git a/patch b/patch
+new file mode 100644
+index 0000000..03553d0
+--- /dev/null
++++ b/patch
+@@ -0,0 +1,10 @@
++build
++cmds
++data
++include
++libs
++MODULE_LICENSE_APACHE2
++NOTICE
++opengl
++patch
++services
+diff --git a/services/surfaceflinger/Android.mk b/services/surfaceflinger/Android.mk
+index 0166b89..4ea9a1a 100644
+--- a/services/surfaceflinger/Android.mk
++++ b/services/surfaceflinger/Android.mk
+@@ -113,11 +113,11 @@ else
+     PLATFORM := $(TARGET_BOARD_PLATFORM)
+ endif
+     LOCAL_C_INCLUDES += $(call project-path-for,qcom-display)/$(PLATFORM)/libgralloc
+-    LOCAL_C_INCLUDES += $(call project-path-for,qcom-display)/$(PLATFORM)/libqdutils
+-ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),caf-new)
+-    LOCAL_CFLAGS += -DQCOM_B_FAMILY
+-endif
+-    LOCAL_SHARED_LIBRARIES += libqdutils
++#    LOCAL_C_INCLUDES += $(call project-path-for,qcom-display)/$(PLATFORM)/libqdutils
++#ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),caf-new)
++#    LOCAL_CFLAGS += -DQCOM_B_FAMILY
++#endif
++#    LOCAL_SHARED_LIBRARIES += libqdutils
+     LOCAL_CFLAGS += -DQCOM_BSP
+ endif
+ 
+-- 
+2.1.4
+
