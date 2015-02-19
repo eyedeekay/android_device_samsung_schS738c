@@ -10,6 +10,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 TARGET_KERNEL_SOURCE := kernel/samsung/schS738c
 #TARGET_PREBUILT_KERNEL := device/samsung/schS738c/kernel
 TARGET_KERNEL_CONFIG := cm_schS738c_defconfig
+#TARGET_KERNEL_CONFIG := cyanogenmod/cm_schS738c_defconfig
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
