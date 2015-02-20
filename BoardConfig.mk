@@ -12,8 +12,8 @@ TARGET_KERNEL_SOURCE := kernel/samsung/schS738c
 #TARGET_KERNEL_CONFIG := cm_schS738c_defconfig
 #TARGET_KERNEL_CONFIG := amazing3g_cdma_00_defconfig
 #TARGET_KERNEL_CONFIG := msm7627a_defconfig
-TARGET_KERNEL_CONFIG := cyanogenmod/jenad_defconfig
-#TARGET_KERNEL_CONFIG := cyanogenmod/cm_schS738c_defconfig
+#TARGET_KERNEL_CONFIG := cyanogenmod/jenad_defconfig
+TARGET_KERNEL_CONFIG := cyanogenmod/cm_schS738c_defconfig
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
