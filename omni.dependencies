@@ -1,6 +1,6 @@
 [
  {
-   "remote": "cmotc"
+   "remote": "cmotc",
    "repository": "android_kernel_samsung_schS738c",
    "target_path": "kernel/samsung/schS738c",
    "revision": "master"
