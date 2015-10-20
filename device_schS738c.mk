@@ -170,7 +170,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	device/samsung/schS738c/recovery/bin/rmt_storage_recovery:recovery/root/sbin/rmt_storage_recovery \
 	device/samsung/schS738c/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
-	device/samsung/schS738c/recovery/postrecoveryboot.sh:recovery/system/bin/postrecoveryboot.sh
+	device/samsung/schS738c/recovery/postrecoveryboot.sh:recovery/system/bin/postrecoveryboot.sh \
+	device/samsung/schS738c/twrp.fstab:recovery/root/etc/twrp.fstab
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.cwm.enable_key_repeat=true
 
