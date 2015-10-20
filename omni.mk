@@ -6,7 +6,7 @@ LOCAL_PATH := $(call my-dir)
 $(call inherit-product, vendor/omni/config/gsm.mk)
 
 # Inherit some common omni stuff.
-$(call inherit-product, vendor/omni/config/common_full_phone.mk)
+$(call inherit-product, vendor/omni/config/common.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/samsung/schS738c/device_schS738c.mk)
