@@ -5,4 +5,34 @@
    "target_path": "kernel/samsung/schS738c",
    "revision": "master"
  }
+ {
+   "remote": "cmotc",
+   "repository": "android_vendor_samsung_schS738c",
+   "target_path": "vendor/samsung/schS738c",
+   "revision": "master"
+ }
+ {
+   "remote": "cmotc",
+   "repository": "schs738c-external_bluetooth",
+   "target_path": "external/bluetooth",
+   "revision": "master"
+ }
+ {
+   "remote": "cmotc",
+   "repository": "schs738c-external_chromium",
+   "target_path": "external/chromium",
+   "revision": "master"
+ }
+ {
+   "remote": "cmotc",
+   "repository": "schs738c-external_tslib",
+   "target_path": "external/tslib",
+   "revision": "master"
+ }
+ {
+   "remote": "cmotc",
+   "repository": "schs738c-external_webkit",
+   "target_path": "external/webkit",
+   "revision": "master"
+ }
 ]
