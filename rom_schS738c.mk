@@ -6,12 +6,15 @@ LOCAL_PATH := $(call my-dir)
 $(call inherit-product, vendor/omni/config/gsm.mk)
 
 #conditional determines if it's a CM tree
-# Inherit some common CM stuff.
-#$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+	# Inherit some common CM stuff.
+	#$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+	# Set ROM prefix to cm
+	#MY_ROM_PREFIX=cm
 #else conditional determines if it's an Omni tree
-# Inherit some common omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
-MY_ROM_PREFIX=omni
+	# Inherit some common omni stuff.
+	$(call inherit-product, vendor/omni/config/common.mk)
+	# Set ROM prefix to omni
+	MY_ROM_PREFIX=omni
 #else conditional determines if it's an AOKP tree
 #else conditional determines if it's an AOSP tree
 #else conditional determines if it's a Guardian ROM tree
@@ -19,7 +22,7 @@ MY_ROM_PREFIX=omni
 
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/schS738c/device_schS738c.mk)
+$(call inherit-product, device/samsung/schS738c/full_schS738c.mk)
 
 ## Setup device makefiles
 SAMSUNG_TARGETS := schS738c
@@ -38,3 +41,5 @@ PRODUCT_MANUFACTURER := samsung
 ## Boot Animation
 TARGET_SCREEN_HEIGHT := 480
 TARGET_SCREEN_WIDTH := 320
+
+echo $PRODUCT_NAME
