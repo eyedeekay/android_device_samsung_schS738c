@@ -1,3 +1,5 @@
+$(call inherit-product, build/target/product/full.mk)
+
 DEVICE_PACKAGE_OVERLAYS += device/samsung/schS738c/overlay
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -192,7 +194,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=2
 PRODUCT_TAGS += dalvik.gc.type-precise
-PRODUCT_AAPT_CONFIG := normal mdpi hdpi
+PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 PRODUCT_PACKAGES += \
@@ -200,9 +202,6 @@ PRODUCT_PACKAGES += \
 	setup_fs \
 	com.android.future.usb.accessory
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, build/target/product/full.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
-$(call inherit-product, device/common/gps/gps_us_supl.mk)
-$(call inherit-product-if-exists, vendor/samsung/schS738c/AndroidBoardVendor.mk)
-$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
+#$(call inherit-product, device/common/gps/gps_us_supl.mk)
