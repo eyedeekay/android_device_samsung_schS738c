@@ -24,13 +24,6 @@ $(call inherit-product, vendor/omni/config/cdma.mk)
 # Inherit device configuration
 $(call inherit-product, device/samsung/schS738c/full_schS738c.mk)
 
-## Setup device makefiles
-SAMSUNG_TARGETS := schS738c
-ifneq ($(filter $(SAMSUNG_TARGETS),$(TARGET_DEVICE)),)
-	LOCAL_PATH := $(call my-dir)
-	include $(all-subdir-makefiles)
-endif
-
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := schS738c
 PRODUCT_NAME := $(MY_ROM_PREFIX)_schS738c
