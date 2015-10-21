@@ -20,9 +20,11 @@ $(call inherit-product, vendor/omni/config/cdma.mk)
 #else conditional determines if it's a Guardian ROM tree
 #else conditional determines if it's a Replicant tree
 
-
 # Inherit device configuration
 $(call inherit-product, device/samsung/schS738c/full_schS738c.mk)
+
+# Inherit device configuration
+$(call inherit-product, device/samsung/schS738c/schS738c.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := schS738c

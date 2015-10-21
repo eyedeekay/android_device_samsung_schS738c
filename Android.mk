@@ -18,20 +18,14 @@
 LOCAL_PATH := $(call my-dir)
 
 ## Setup device makefiles
-#ifneq ($(filter "schS738c",$(TARGET_DEVICE)))
+# SAMSUNG_TARGETS := schS738c
+ifneq ($(filter "schS738c",$(TARGET_DEVICE)))
+	#include $(all-subdir-makefiles)
 	include $(call all-makefiles-under,$(LOCAL_PATH))
-#endif
-
-## Setup device makefiles
-#SAMSUNG_TARGETS := schS738c
-#
-#	LOCAL_PATH := $(call my-dir)
-#	include $(all-subdir-makefiles)
-#endif
+endif
 
 #include $(CLEAR_VARS)
 
 # include the non-open-source counterpart to this file
 #-include vendor/samsung/schS738c/AndroidBoardVendor.mk
 include vendor/samsung/schS738c/AndroidBoardVendor.mk
-$(call inherit-product-if-exists, vendor/samsung/schS738c/AndroidBoardVendor.mk)
