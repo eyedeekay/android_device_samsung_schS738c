@@ -1,6 +1,9 @@
 # inherit from the proprietary version
 #-include vendor/samsung/schS738c/BoardConfigVendor.mk
 
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+
 DEVICE_PACKAGE_OVERLAYS += device/samsung/schS738c/overlay
 
 ## Kernel, Bootloader
@@ -9,50 +12,57 @@ BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_PAGESIZE := 4096
 TARGET_KERNEL_SOURCE := kernel/samsung/schS738c
 #TARGET_PREBUILT_KERNEL := device/samsung/schS738c/kernel
-#TARGET_KERNEL_CONFIG := cm_schS738c_defconfig
 #TARGET_KERNEL_CONFIG := amazing3g_cdma_00_defconfig
-#TARGET_KERNEL_CONFIG := msm7627a_defconfig
-#TARGET_KERNEL_CONFIG := cyanogenmod/jenad_defconfig
+
 TARGET_KERNEL_CONFIG := cyanogenmod/cm_schS738c_defconfig
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 ## Platform Configuration
 TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_ARCH_VARIANT := armv7-a
 TARGET_ARCH_LOWMEM := true
 TARGET_BOARD_PLATFORM := msm7x27a
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_VARIANT := cortex-a5
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_NO_KERNEL := false
 TARGET_USERIMAGES_USE_EXT4 := true
 
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+## Software Configuration
+TARGET_SHELL := ash
+
+# Enable dex-preoptimization to speed up the first boot sequence
+# of an SDK AVD. Note that this operation only works on Linux for now
+ifeq ($(HOST_OS),linux)
+WITH_DEXPREOPT := true
+endif
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
-TARGET_GLOBAL_CFLAGS += -mtune=cortex-a5 -mfpu=neon-vfpv4 -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon-vfpv4 -mfloat-abi=softfp
+TARGET_HAVE_TSLIB := true
+
+#COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+#TARGET_GLOBAL_CFLAGS += -mtune=cortex-a5 -mfpu=neon-vfpv4 -mfloat-abi=softfp
+#TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon-vfpv4 -mfloat-abi=softfp
 
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/schS738c/include
 
 ## Qcom hardwae
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_USES_QCOM_BSP := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
-COMMON_GLOBAL_CFLAGS += -DMSM_BSP
+#COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
+#COMMON_GLOBAL_CFLAGS += -DMSM_BSP
 QCOM_TARGET_PRODUCT := msm7627a
 #TARGET_AVOID_DRAW_TEXTURE_EXTENSION := true
 #TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 
 ## Video
-TARGET_QCOM_MEDIA_VARIANT := caf
+#TARGET_QCOM_MEDIA_VARIANT := caf
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_LEGACY_MMPARSER
 
 ## Graphics
+BUILD_EMULATOR_OPENGL := true
 USE_OPENGL_RENDERER := true
 TARGET_QCOM_DISPLAY_VARIANT := legacy
 TARGET_DOESNT_USE_FENCE_SYNC := true
@@ -67,10 +77,13 @@ BOARD_LPM_BOOT_ARGUMENT_NAME := androidboot.boot_pause
 BOARD_LPM_BOOT_ARGUMENT_VALUE := batt
 
 ## Audio
-TARGET_QCOM_AUDIO_VARIANT := caf
-BOARD_USES_LEGACY_ALSA_AUDIO := true
-COMMON_GLOBAL_CFLAGS += -DNO_TUNNELED_SOURCE
-QCOM_DIRECTTRACK := true
+HAVE_HTC_AUDIO_DRIVER := true
+BOARD_USES_GENERIC_AUDIO := true
+#TARGET_QCOM_AUDIO_VARIANT := caf
+#BOARD_USES_LEGACY_ALSA_AUDIO := true
+#COMMON_GLOBAL_CFLAGS += -DNO_TUNNELED_SOURCE
+#QCOM_DIRECTTRACK := true
+
 #LEGACY_LPA := true
 #BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
 #COMMON_GLOBAL_CFLAGS += -DAUDIO_LEGACY_HACK -DHAVE_PRE_KITKAT_AUDIO_BLOB
@@ -90,7 +103,7 @@ WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/ath6kl_sdio.ko"
 WIFI_DRIVER_MODULE_ARG := "suspend_mode=3 wow_mode=2 ath6kl_p2p=1 recovery_enable=1"
 
 ## Camera
-#USE_CAMERA_STUB := true
+USE_CAMERA_STUB := true
 TARGET_DISABLE_ARM_PIE := true
 COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT -DNEEDS_VECTORIMPL_SYMBOLS
 COMMON_GLOBAL_CFLAGS += -DCAMERA_NO_UNWANTED_MSG -DSAMSUNG_CAMERA_LEGACY
