@@ -18,13 +18,13 @@
 LOCAL_PATH := $(call my-dir)
 
 ## Setup device makefiles
-ifeq ($(TARGET_DEVICE),schS738c)
+#ifneq ($(filter "schS738c",$(TARGET_DEVICE)))
 	include $(call all-makefiles-under,$(LOCAL_PATH))
-endif
+#endif
 
 ## Setup device makefiles
 #SAMSUNG_TARGETS := schS738c
-#ifneq ($(filter $(SAMSUNG_TARGETS),$(TARGET_DEVICE)),)
+#
 #	LOCAL_PATH := $(call my-dir)
 #	include $(all-subdir-makefiles)
 #endif
