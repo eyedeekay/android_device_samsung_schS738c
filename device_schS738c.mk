@@ -204,5 +204,5 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, build/target/product/full.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
-$(call inherit-product-if-exists, vendor/samsung/schS738c/VendorBlobs.mk)
+$(call inherit-product-if-exists, vendor/samsung/schS738c/AndroidBoardVendor.mk)
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
