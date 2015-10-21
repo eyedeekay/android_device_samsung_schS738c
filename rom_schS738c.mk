@@ -3,7 +3,7 @@ PRODUCT_RELEASE_NAME := schS738c
 LOCAL_PATH := $(call my-dir)
 
 # Specify phone tech before including full_phone
-$(call inherit-product, vendor/omni/config/gsm.mk)
+$(call inherit-product, vendor/omni/config/cdma.mk)
 
 #conditional determines if it's a CM tree
 	# Inherit some common CM stuff.
