@@ -23,9 +23,6 @@ $(call inherit-product, vendor/omni/config/cdma.mk)
 # Inherit device configuration
 $(call inherit-product, device/samsung/schS738c/full_schS738c.mk)
 
-# Inherit device configuration
-$(call inherit-product, device/samsung/schS738c/schS738c.mk)
-
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := schS738c
 PRODUCT_NAME := $(MY_ROM_PREFIX)_schS738c
@@ -36,5 +33,3 @@ PRODUCT_MANUFACTURER := samsung
 ## Boot Animation
 TARGET_SCREEN_HEIGHT := 480
 TARGET_SCREEN_WIDTH := 320
-
-echo $PRODUCT_NAME

@@ -1,7 +1,5 @@
 $(call inherit-product, build/target/product/full.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/samsung/schS738c/overlay
-
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 else
